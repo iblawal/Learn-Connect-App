@@ -4,15 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "dev:server": "ts-node backend/server.ts",
+    "build": "npm run build:server",
     "build:server": "tsc -p backend/tsconfig.json",
-    "start:server": "node dist/backend/server.js"
+    "start": "npm run start:server",
+    "start:server": "node dist/backend/server.js",
+    "lint": "eslint",
+    "dev:server": "ts-node backend/server.ts"
   },
   "dependencies": {
     "axios": "^1.13.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.16",
+    "@types/bcryptjs": "^2.4.6",
     "@types/body-parser": "^1.19.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
