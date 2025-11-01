@@ -16,7 +16,18 @@ console.log("MONGO_URI:", process.env.MONGO_URI ? " Loaded" : " Missing");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Fixed CORS - properly filter out undefined values
+const allowedOrigins: string[] = [
+  'http://localhost:3000',
+  'https://your-nextjs-app.vercel.app', // Replace with your actual Vercel URL
+  process.env.FRONTEND_URL
+].filter((origin): origin is string => Boolean(origin));
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
 console.log(" Middleware initialized...");
@@ -41,7 +52,7 @@ app.get("/", (req: Request, res: Response) => {
 
 // === Start Server ===
 app.listen(PORT, () => {
-  console.log(` Server running on http://localhost:${PORT}`);
+  console.log(` Server running on port ${PORT}`);
 });
 
 export default app;
