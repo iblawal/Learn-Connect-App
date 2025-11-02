@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000;
 // Fixed CORS - properly filter out undefined values
 const allowedOrigins: string[] = [
   'http://localhost:3000',
-  'https://your-nextjs-app.vercel.app', // Replace with your actual Vercel URL
+  'my-app-rose-six.vercel.app', 
   process.env.FRONTEND_URL
 ].filter((origin): origin is string => Boolean(origin));
 
