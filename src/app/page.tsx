@@ -111,7 +111,7 @@ export default function HomePage() {
               <h4 className="text-xl font-semibold mb-3">Contact Us</h4>
               <ul className="space-y-2 text-gray-200">
                 <li>Email: support@learnconnect.com</li>
-                <li>Phone: +234 800 123 4567</li>
+                <li>Phone: +234 7026089954</li>
                 <li>Location: Lagos, Nigeria</li>
               </ul>
             </div>
