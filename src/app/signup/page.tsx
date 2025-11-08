@@ -73,42 +73,45 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center animated-bg px-4 py-12">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center relative overflow-hidden animated-bg px-4 sm:px-6 md:px-10 py-12">
+    
 
       {}
-      <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-yellow-400/30 rounded-full blur-[150px]"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-500/40 rounded-full blur-[160px]"></div>
+      <div className="absolute top-[-20%] left-[-20%] w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-blue-500/30 rounded-full blur-[150px]"></div>
+      <div className="absolute bottom-[-20%] right-[-20%] w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-sky-400/30 rounded-full blur-[150px]"></div>
 
       {}
       <motion.div
-        initial={{ opacity: 0, x: -60 }}
+        initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 text-center md:text-left px-8 md:px-16 z-10"
+        viewport={{ once: true }}
+        className="w-full md:w-1/2 text-center md:text-left z-10 mb-10 md:mb-0"
       >
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-          Join <span className="text-brandGold">Learn & Connect</span>
-        </h1>
-        <p className="text-white/80 text-lg max-w-md mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 text-white">
+        Join <span className="text-blue-900">Learn & Connect</span>
+      </h1>
+        <p className="text-white/80 text-base sm:text-lg max-w-md mx-auto md:mx-0 mb-6">
           Connect with global learners, boost your career, and unlock new
           opportunities through personalized growth and mentorship.
         </p>
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="inline-block bg-white/10 backdrop-blur-md px-6 py-3 rounded-full text-sm font-medium text-yellow-300 border border-yellow-400/40 shadow-[0_0_25px_rgba(251,191,36,0.3)]"
+          className="inline-block bg-white/10 backdrop-blur-md px-6 py-3 rounded-full text-sm font-medium text-blue-900 border border-blue-400/40 shadow-[0_0_25px_rgba(147,197,253,0.3)]"
         >
-          Trusted by 10,000+ learners worldwide 🌍
+          Trusted by 10,000+ learners worldwide 
         </motion.div>
       </motion.div>
 
       {}
       <motion.div
-        initial={{ opacity: 0, x: 60 }}
+        initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 shadow-[0_0_30px_rgba(251,191,36,0.3)] rounded-2xl p-8 mx-6 my-10 md:my-0 z-10"
+        viewport={{ once: true }}
+         className="w-full md:w-1/2 max-w-md bg-white/10 backdrop-blur-lg border border-white/20 shadow-[0_0_30px_rgba(147,197,253,0.3)] rounded-2xl p-6 sm:p-8 mx-auto z-10"
       >
-        <h2 className="text-3xl font-bold text-center text-brandGold mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-blue-900 mb-2">
           Create Account
         </h2>
         <p className="text-center text-white/70 mb-6 text-sm">
@@ -128,39 +131,39 @@ export default function SignupPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {}
           <div>
-            <label className="block text-sm font-semibold text-brandGold mb-1">
+            <label className="block text-sm font-semibold text-blue-900  mb-1">
               Full Name
             </label>
             <input
               type="text"
               name="fullName"
-              placeholder="John Doe"
+              placeholder=""
               value={formData.fullName}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2.5 rounded-lg bg-white/90 text-gray-900 border border-yellow-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full px-3 py-2.5 rounded-lg bg-white/90 text-gray-900 border border-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
 
           {}
           <div>
-            <label className="block text-sm font-semibold text-brandGold mb-1">
+            <label className="block text-sm font-semibold text-blue-900 mb-1">
               Email Address
             </label>
             <input
               type="email"
               name="email"
-              placeholder="you@example.com"
+              placeholder=""
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2.5 rounded-lg bg-white/90 text-gray-900 border border-yellow-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="w-full px-3 py-2.5 rounded-lg bg-white/90 text-gray-900 border border-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
 
           {}
           <div>
-            <label className="block text-sm font-semibold text-brandGold mb-1">
+            <label className="block text-sm font-semibold text-blue-900 mb-1">
               Phone Number
             </label>
             <PhoneInput
@@ -174,7 +177,7 @@ export default function SignupPage() {
 
           {}
           <div>
-            <label className="block text-sm font-semibold text-brandGold mb-1">
+            <label className="block text-sm font-semibold text-blue-900 mb-1">
               Password
             </label>
             <div className="relative">
@@ -186,21 +189,21 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 minLength={6}
-                className="w-full px-3 py-2.5 pr-10 rounded-lg bg-white/90 text-gray-900 border border-yellow-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+               className="w-full px-3 py-2.5 pr-10 rounded-lg bg-white/90 text-gray-900 border border-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
               >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
               </button>
             </div>
           </div>
 
           {}
           <div>
-            <label className="block text-sm font-semibold text-brandGold mb-1">
+            <label className="block text-sm font-semibold text-brandGold   text-blue-900 mb-1">
               Confirm Password
             </label>
             <div className="relative">
@@ -212,7 +215,7 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 minLength={6}
-                className="w-full px-3 py-2.5 pr-10 rounded-lg bg-white/90 text-gray-900 border border-yellow-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                className="w-full px-3 py-2.5 pr-10 rounded-lg bg-white/90 text-gray-900 border border-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
               <button
                 type="button"
@@ -221,7 +224,7 @@ export default function SignupPage() {
                 }
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
               >
-                {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                {showConfirmPassword ? <EyeOff size={15} /> : <Eye size={15} />}
               </button>
             </div>
           </div>
@@ -232,7 +235,7 @@ export default function SignupPage() {
             whileTap={{ scale: isLoading ? 1 : 0.98 }}
             type="submit"
             disabled={isLoading}
-            className="w-full bg-brandGold text-blue-900 font-semibold py-3 rounded-lg mt-4 hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(251,191,36,0.4)]"
+            className="w-full bg-blue-300 text-blue-900 font-semibold py-3 rounded-lg mt-4 hover:bg-blue-400 transition disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(147,197,253,0.4)]"
           >
             {isLoading ? "Creating Account..." : "Sign Up"}
           </motion.button>
@@ -242,7 +245,7 @@ export default function SignupPage() {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="text-brandGold hover:text-white font-semibold transition"
+            className="text-blue-900 hover:text-white font-semibold transition"
           >
             Log In
           </Link>
@@ -260,7 +263,7 @@ export default function SignupPage() {
           border-radius: 0.5rem;
           background: rgba(255, 255, 255, 0.9);
           color: #1f2937;
-          border: 1px solid rgba(251, 191, 36, 0.4);
+          border: 1px solid rgba(147, 197, 253, 0.4);
         }
       `}</style>
     </div>

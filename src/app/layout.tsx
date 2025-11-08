@@ -34,16 +34,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-linear-to-br from-brandSky via-brandGold/10 to-brandEmerald/20 text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-linear-to-br from-sky-600 via-blue-800/40 to-indigo-900/70 text-white`}
         suppressHydrationWarning
       >
         <AuthProvider>
-          {children}
+          {}
+          <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
+            <main className="flex-1 w-full">
+              {children}
+            </main>
+          </div>
         </AuthProvider>
       </body>
     </html>

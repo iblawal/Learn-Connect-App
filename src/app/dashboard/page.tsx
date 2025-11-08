@@ -97,18 +97,25 @@ export default function DashboardLayout({ children }: Props) {
   };
 
   return (
-    <div className="min-h-screen flex bg-[linear-gradient(180deg,#0f172a,rgba(8,9,20,0.6))] text-white">
+    <div className="min-h-screen flex flex-col md:flex-row bg-[linear-gradient(180deg,#0f172a,rgba(8,9,20,0.6))] text-white overflow-x-hidden">
+      {!collapsed && (
+       <div
+         className="fixed inset-0 bg-black/40 md:hidden z-20"
+         onClick={() => setCollapsed(true)}
+       ></div>
+     )}
+
       {}
       <aside
-        className={`shrink-0 transition-all duration-300 ease-in-out flex flex-col z-20
-          ${collapsed ? "w-20" : "w-64"} bg-[#1b3995] border-r border-black/20`}
+       className={`fixed md:relative inset-y-0 left-0 z-30 transform transition-all duration-300 ease-in-out flex flex-col
+        ${collapsed ? "-translate-x-full md:translate-x-0 md:w-20" : "translate-x-0 md:w-64"} 
+        bg-[#1b3995] border-r border-black/20`}
       >
         {}
-        <div className="p-4">
+        <div className="p-4 sm:p-6">
           <div className="flex items-center gap-3">
             <div className={`relative ${collapsed ? "w-10 h-10" : "w-14 h-14"}`}> 
               {user.avatar ? (
-                // next/image could be used, but keep simple img to accept data URLs too
                 <img
                   src={user.avatar}
                   alt="avatar"
@@ -279,7 +286,7 @@ export default function DashboardLayout({ children }: Props) {
       {}
       <div className="flex-1 flex flex-col">
         {}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/6 bg-transparent">
+        <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-3 border-b border-white/6 bg-transparent">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setCollapsed((c) => !c)}
@@ -324,18 +331,18 @@ export default function DashboardLayout({ children }: Props) {
             {}
             <section className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <h1 className="text-3xl font-bold text-[#16a085]">Welcome back, {user.fullName.split(" ")[0]}</h1>
+                <h1 className="text-3xl font-bold text-[#0EA5E9]">Welcome back, {user.fullName.split(" ")[0]}</h1>
                 <p className="text-sm text-white/80 mt-1">Explore your Learn & Connect dashboard</p>
               </div>
 
               <div className="flex items-center gap-4">
-                <button className="px-4 py-2 rounded-md bg-[#16a085] hover:bg-[#129073] text-white">Create Post</button>
+                <button className="px-4 py-2 rounded-md bg-[#0EA5E9] hover:bg-[#129073] text-white">Create Post</button>
                 <button className="px-4 py-2 rounded-md bg-white/6 hover:bg-white/8">Notifications</button>
               </div>
             </section>
 
             {}
-            <section className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { label: "Total Students", value: 1200, color: "#16a085", icon: Users },
                 { label: "Same University", value: 48, color: "#60a5fa", icon: BookOpen },
@@ -393,7 +400,7 @@ export default function DashboardLayout({ children }: Props) {
                 <div className="bg-white/6 p-6 rounded-2xl border border-white/6">
                   <h3 className="font-semibold mb-2">Quick Actions</h3>
                   <div className="flex gap-3 mt-3">
-                    <button className="px-4 py-2 bg-[#16a085] rounded-md">Connect</button>
+                    <button className="px-4 py-2 bg-[#0EA5E9] rounded-md">Connect</button>
                     <button className="px-4 py-2 bg-white/8 rounded-md">Message</button>
                   </div>
                 </div>
