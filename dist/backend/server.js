@@ -10,6 +10,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const auth_routes_1 = __importDefault(require("./routes/auth.routes"));
+const user_routes_1 = __importDefault(require("./routes/user.routes"));
 console.log(" All modules imported successfully...");
 dotenv_1.default.config();
 console.log(" Environment variables loaded...");
@@ -28,6 +29,7 @@ app.use((0, cors_1.default)({
 app.use(body_parser_1.default.json());
 console.log(" Middleware initialized...");
 app.use("/api/auth", auth_routes_1.default);
+app.use("/api/users", user_routes_1.default);
 console.log(" Auth routes connected...");
 mongoose_1.default
     .connect(process.env.MONGO_URI)
