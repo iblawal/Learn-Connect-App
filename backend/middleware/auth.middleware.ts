@@ -17,8 +17,6 @@ export const protect = async (
 ) => {
   try {
     let token;
-
-   
     if (
       req.headers.authorization &&
       req.headers.authorization.startsWith("Bearer")
@@ -33,10 +31,7 @@ export const protect = async (
       });
     }
 
-   
     const decoded = verifyToken(token);
-
-  
     const user = await User.findById(decoded.userId).select("-password");
     if (!user) {
       return res.status(401).json({
@@ -44,8 +39,7 @@ export const protect = async (
         message: "User not found",
       });
     }
-
- 
+    
     req.user = user;
     next();
   } catch (error: any) {

@@ -11,17 +11,21 @@ export interface IUser extends Document {
   verificationCodeExpires: Date | undefined;
   createdAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
+  school?: string;
+  course?: string;
 }
 
 const userSchema = new Schema<IUser>(
   {
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true, lowercase: true },
-    password: { type: String, required: true },
+    password: { type: String, required: true, lowercase: true, uppercase: true},
     phone: { type: String, required: true },
     isVerified: { type: Boolean, default: false },
     verificationCode: { type: String },
     verificationCodeExpires: { type: Date },
+    school: { type: String, default: "" },
+    course: { type: String, default: "" },
   },
   { timestamps: true }
 );

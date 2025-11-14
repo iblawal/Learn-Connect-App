@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes";  
+import userRoutes from "./routes/user.routes";
 
 console.log(" All modules imported successfully...");
 
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 console.log(" Middleware initialized...");
 
 app.use("/api/auth", authRoutes);  
+app.use("/api/users", userRoutes);
 
 console.log(" Auth routes connected...");
 
